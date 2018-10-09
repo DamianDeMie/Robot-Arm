@@ -12,26 +12,24 @@
             robotArm.speed = 1000;
             
             // Jou instructies volgen hier
-            robotArm.moveRight();
-            robotArm.grab();
-            color = robotArm.scan();
-            console.log(color)
-            for (loop = 1; loop <=8; loop++)
+            for (i = 0; i < 9; i++){
+                robotArm.moveRight();
+            }
+
+            for (loop = 0; loop < 9; loop++){
+                robotArm.grab();
+                var color = robotArm.scan();
+
             if (color == 'white') {
                 robotArm.moveRight();
                 robotArm.drop();
-                robotArm.moveRight();
-                robotArm.grab();
-                color = robotArm.scan();
-                console.log(color)
+                robotArm.moveLeft();
             }
             else {
                 robotArm.drop();
-                robotArm.moveRight();
-                robotArm.grab();
-                color = robotArm.scan();
-                console.log(color)
             }
+                robotArm.moveLeft();
+        }
             // De door jou opgegeven instructies uitvoeren
             robotArm.run();
         </script>
